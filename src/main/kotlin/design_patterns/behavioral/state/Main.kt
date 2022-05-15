@@ -1,12 +1,9 @@
 package design_patterns.behavioral.state
-/*
-import design_patterns.behavioral.state.CupcakeFactory.randomCupcake
-import design_patterns.behavioral.state.cupcakes.Cupcake.presentCupcake
-import design_patterns.behavioral.state.cupcakes.Cupcake.price
-import design_patterns.behavioral.state.discounts.DiscountState.discount
-*/
-import design_patterns.behavioral.state.discounts.*
+
+import design_patterns.behavioral.state.cupcakes.Cupcake
 import kotlin.jvm.JvmStatic
+import design_patterns.behavioral.state.cupcakes.SpecialCupcake
+import design_patterns.behavioral.state.discounts.*
 
 object Main {
     // Main acts like a cash register
@@ -18,18 +15,13 @@ object Main {
         val quarterOff = QuarterOff()
         val threeFourthsOff = ThreeFourthsOff()
         val discount: DiscountState = quarterOff
-        var total = 0.0
-
-        //Cupcake Factory
-        val factory = CupcakeFactory()
-        for (i in 0..2) {
-            val cupcake = factory.randomCupcake()
-            cupcake!!.presentCupcake()
-            total += cupcake.price
-        }
+        var discountedPrice = 0.0
+        val sampleCupcake: Cupcake = SpecialCupcake()
+        sampleCupcake.presentCupcake()
+        discountedPrice = sampleCupcake.price
         println("----------------------------------------------")
-        println("Total price: $total")
+        println("Total price: $discountedPrice")
         println("Discount rate: " + ((1 - discount.discount()) * 100).toString() + " %")
-        println("Total price w/ discount: " + (total * discount.discount()).toString())
+        println("Total price w/ discount: " + (discountedPrice * discount.discount()).toString())
     }
 }
