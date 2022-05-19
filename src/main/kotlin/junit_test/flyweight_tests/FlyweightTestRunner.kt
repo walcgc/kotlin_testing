@@ -14,10 +14,10 @@ class FlyweightTestRunner {
     @Test
     fun completeCircleDetailsXXX1() {
         // Test if functions generate random numbers and getters and setters are working.
-        val circle = ShapeFactory.getCircle(TestFunctions.getRandomColor()) as Circle
-        circle.setX(TestFunctions.getRandomX())
-        circle.setY(TestFunctions.getRandomY())
-        circle.setRadius(100)
+        val circle = ShapeFactory.getCircle(TestFunctions.randomColor) as Circle
+        circle.x = TestFunctions.randomX
+        circle.y = TestFunctions.randomY
+        circle.radius = 100
 
         assertNotNull(circle.color)
         assertNotNull(circle.x)
@@ -32,9 +32,9 @@ class FlyweightTestRunner {
         // Test if functions generate random numbers and getters and setters are working.
         // non - random values
         val circle = ShapeFactory.getCircle("Blue") as Circle
-        circle.setX(20)
-        circle.setY(47)
-        circle.setRadius(98)
+        circle.x = 20
+        circle.y = 47
+        circle.radius =98
 
         assertNotNull(circle.color)
         assertNotNull(circle.x)
@@ -50,9 +50,9 @@ class FlyweightTestRunner {
         // Incomplete details of circle
         //There's a bug here, if you change it to Blue, seems like it's referencing past object from other test.
         val circle = ShapeFactory.getCircle("Green") as Circle
-        circle.setX(20)
+        circle.x = 20
 
-        circle.setRadius(98)
+        circle.radius = 98
 
         assertNotNull(circle.color)
         assertNotNull(circle.x)
