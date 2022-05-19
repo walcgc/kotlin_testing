@@ -36,11 +36,11 @@ class FactoryTestRunner {
     }
 
     @Test
-    fun returnsNoCupcakeXXX1() {
+    fun returnsDefaultCupcakeXXX1() {
         // checks if object is same kind
-        var cupcake = "Bananas"
-        assertNull(cupcakeFactory.makeCupcake(cupcake))
-        logger.info(cupcake + " used as input. No cupcake returned.")
+        var cupcake = "AA"
+        assertTrue(cupcakeFactory.makeCupcake(cupcake) is DefaultCupcake)
+        logger.info(cupcake + " used as input. Default cupcake returned.")
     }
 }
 
