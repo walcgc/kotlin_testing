@@ -45,6 +45,21 @@ class StateTestRunner {
     }
 
     @Test
+    fun falseTestCaseXXX1(){
+        val fullPriceCupcake: Cupcake = SpecialCupcake()
+        fullPriceCupcake.price = 60.1
+
+        // Testing for full price
+        referenceDiscountedPrice = fullPriceCupcake.price
+        val test_cupcake1: Cupcake = SpecialCupcake()
+        testDiscountedPrice = calculateDiscountedPrice(test_cupcake1, fullPrice)
+        //Assert.assertEquals(referenceDiscountedPrice, testDiscountedPrice, 0.0)
+        Assert.assertFalse(isCorrectPrice(fullPriceCupcake.price, testDiscountedPrice))
+        logger.info("False Test passed")
+
+    }
+
+    @Test
     fun quarterOffPriceTestXXX1(){
         val cupcake25Off: Cupcake = SpecialCupcake()
         cupcake25Off.price = 45.0

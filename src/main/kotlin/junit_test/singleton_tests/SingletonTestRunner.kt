@@ -18,5 +18,10 @@ class SingletonTestRunner {
     fun returnsInstanceXXX1() {
         assertNotNull(objectExists())
     }
+
+    @Test
+    fun sameObjectXXX1() {
+        assertTrue(sameObject())
+    }
 }
 
