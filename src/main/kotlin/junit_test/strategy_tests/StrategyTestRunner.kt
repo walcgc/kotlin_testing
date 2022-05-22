@@ -1,8 +1,6 @@
 package junit_test.strategy_tests
 
 import design_patterns.behavioral.strategy.Context
-import design_patterns.behavioral.strategy.Context.executeStrategy
-import junit_test.strategy_tests.StrategyTestCases
 import design_patterns.behavioral.strategy.strategies.OperationAdd
 import design_patterns.behavioral.strategy.strategies.OperationSubtract
 import design_patterns.behavioral.strategy.strategies.OperationMultiply
