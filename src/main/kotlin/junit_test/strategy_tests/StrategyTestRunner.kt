@@ -61,10 +61,9 @@ class StrategyTestRunner {
             StrategyTestCases.calculateReferenceDifference(number1, number2)
         )
         val context = Context(OperationAdd())
-        //int testResult1 = context.executeStrategy(number1, number2);
         val context2 = Context(OperationSubtract())
-        //int testResult2 = context2.executeStrategy(number1, number2);
         val context3 = Context(OperationMultiply())
+
         val finalTestResult = context3.executeStrategy(
             context.executeStrategy(number1, number2),
             context2.executeStrategy(number1, number2)

@@ -12,10 +12,6 @@ import org.junit.Test
 import java.util.logging.Logger
 
 class StateTestRunner {
-    fun printBreak() {
-        println("\nPASSED")
-        println("===========================================================================")
-    }
 
     // Discount States
     val fullPrice = FullPrice()
@@ -45,7 +41,7 @@ class StateTestRunner {
     }
 
     @Test
-    fun falseTestCaseXXX1(){
+    fun falseTestCaseFullPrice(){
         val fullPriceCupcake: Cupcake = SpecialCupcake()
         fullPriceCupcake.price = 60.1
 
@@ -53,7 +49,6 @@ class StateTestRunner {
         referenceDiscountedPrice = fullPriceCupcake.price
         val test_cupcake1: Cupcake = SpecialCupcake()
         testDiscountedPrice = calculateDiscountedPrice(test_cupcake1, fullPrice)
-        //Assert.assertEquals(referenceDiscountedPrice, testDiscountedPrice, 0.0)
         Assert.assertFalse(isCorrectPrice(fullPriceCupcake.price, testDiscountedPrice))
         logger.info("False Test passed")
 
@@ -75,6 +70,20 @@ class StateTestRunner {
     }
 
     @Test
+    fun falseTestCaseQuarterOffPrice(){
+        val cupcake25Off: Cupcake = SpecialCupcake()
+        cupcake25Off.price = 44.99;
+
+        // Testing for full price
+        referenceDiscountedPrice = cupcake25Off.price
+        val test_cupcake1: Cupcake = SpecialCupcake()
+        testDiscountedPrice = calculateDiscountedPrice(test_cupcake1, quarterOff)
+        Assert.assertFalse(isCorrectPrice(cupcake25Off.price, testDiscountedPrice))
+        logger.info("False Test passed")
+
+    }
+
+    @Test
     fun halfOffPriceTestXXX1(){
         val cupcakeHalfOff: Cupcake = SpecialCupcake()
         cupcakeHalfOff.price = 30.0
@@ -86,6 +95,20 @@ class StateTestRunner {
         Assert.assertEquals(referenceDiscountedPrice, testDiscountedPrice, 0.0)
         Assert.assertTrue(isCorrectPrice(cupcakeHalfOff.price, testDiscountedPrice))
         logger.info("50% Off Price Discount applied")
+
+    }
+
+    @Test
+    fun falseTestCaseHalfOffPrice(){
+        val cupcakeHalfOff: Cupcake = SpecialCupcake()
+        cupcakeHalfOff.price = 30.01
+
+        // Testing for full price
+        referenceDiscountedPrice = cupcakeHalfOff.price
+        val test_cupcake1: Cupcake = SpecialCupcake()
+        testDiscountedPrice = calculateDiscountedPrice(test_cupcake1, halfOff)
+        Assert.assertFalse(isCorrectPrice(cupcakeHalfOff.price, testDiscountedPrice))
+        logger.info("False Test passed")
 
     }
 
@@ -105,4 +128,7 @@ class StateTestRunner {
 
         logger.info("75% Off Price Discount applied")
     }
+
+
+
 }
