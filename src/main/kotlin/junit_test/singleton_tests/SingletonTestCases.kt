@@ -16,3 +16,7 @@ fun sameObject(): Boolean{
     var singleObject2: SingleObject = SingleObject
     return singleObject.equals(singleObject2)
 }
+
+fun transitiveTest(singleObject3: SingleObject, singleObject4: SingleObject): Boolean{
+    return singleObject3.equals(singleObject4)
+}

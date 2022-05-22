@@ -1,5 +1,6 @@
 package junit_test.singleton_tests
 
+import design_patterns.creational.singleton.SingleObject
 import junit_test.state_tests.StateTestRunner
 import org.junit.Assert.*
 import org.junit.Test
@@ -32,5 +33,14 @@ class SingletonTestRunner {
         assertTrue(sameObject())
         logger.info("Same object returned.")
     }
+
+    @Test
+    fun transitiveTest() {
+        var singleObject3: SingleObject = SingleObject
+        var singleObject4: SingleObject = SingleObject
+        assertTrue(transitiveTest(singleObject3, singleObject4))
+        logger.info("Same objects returned.")
+    }
+
 }
 
