@@ -6,7 +6,6 @@ import junit_test.state_tests.StateTestCases.isCorrectPrice
 import design_patterns.behavioral.state.cupcakes.SpecialCupcake
 import design_patterns.behavioral.state.discounts.*
 
-import junit_test.state_tests.StateTestCases
 import org.junit.Assert
 import org.junit.Test
 import java.util.logging.Logger
@@ -45,7 +44,7 @@ class StateTestRunner {
         val fullPriceCupcake: Cupcake = SpecialCupcake()
         fullPriceCupcake.price = 60.1
 
-        // Testing for full price
+        // False test for full price
         referenceDiscountedPrice = fullPriceCupcake.price
         val test_cupcake1: Cupcake = SpecialCupcake()
         testDiscountedPrice = calculateDiscountedPrice(test_cupcake1, fullPrice)
@@ -74,7 +73,7 @@ class StateTestRunner {
         val cupcake25Off: Cupcake = SpecialCupcake()
         cupcake25Off.price = 44.99;
 
-        // Testing for full price
+        // False test for 25% off price
         referenceDiscountedPrice = cupcake25Off.price
         val test_cupcake1: Cupcake = SpecialCupcake()
         testDiscountedPrice = calculateDiscountedPrice(test_cupcake1, quarterOff)
@@ -103,7 +102,7 @@ class StateTestRunner {
         val cupcakeHalfOff: Cupcake = SpecialCupcake()
         cupcakeHalfOff.price = 30.01
 
-        // Testing for full price
+        // False test for 50% off
         referenceDiscountedPrice = cupcakeHalfOff.price
         val test_cupcake1: Cupcake = SpecialCupcake()
         testDiscountedPrice = calculateDiscountedPrice(test_cupcake1, halfOff)

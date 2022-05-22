@@ -1,6 +1,6 @@
 package junit_test.strategy_tests
 
-import junit_test.strategy_tests.StrategyTestCases
+
 import java.util.logging.Level
 import java.util.logging.Logger
 
