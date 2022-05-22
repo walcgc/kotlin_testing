@@ -38,7 +38,7 @@ class SingletonTestRunner {
     fun transitiveTest() {
         var singleObject3: SingleObject = SingleObject
         var singleObject4: SingleObject = SingleObject
-        assertTrue(transitiveTest(singleObject3, singleObject4))
+        assertTrue(isTheSame(singleObject3, singleObject4))
         logger.info("Same objects returned.")
     }
 
