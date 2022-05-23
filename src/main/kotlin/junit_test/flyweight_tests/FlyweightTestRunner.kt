@@ -69,33 +69,41 @@ class FlyweightTestRunner {
     }
 
     @Test
-    fun testItemCount() {
+    fun testCircleCount() {
+
+        //tests if flyweight is properly reusing already-existing circles of the same color
 
         val circle = ShapeFactory.getCircle("Orange") as Circle
         circle.x = 20
         circle.y = 47
         circle.radius =98
 
-        val primaryValue = ShapeFactory.getMapSize()
-        logger.info("Number of existing circles: $primaryValue")
+        // map size after creating a new circle of color Orange
+        val primaryItemCount = ShapeFactory.getMapSize()
+        logger.info("Number of existing circles: $primaryItemCount")
 
         val circle2 = ShapeFactory.getCircle("Brown") as Circle
         circle.x = 10
         circle.y = 27
         circle.radius = 78
 
-        val oldValue = ShapeFactory.getMapSize()
-        logger.info("Number of existing circles: $oldValue")
+        // map size after creating a new circle of color Brown
+        // should be 1 more than primaryValue
+        val oldItemCount = ShapeFactory.getMapSize()
+        logger.info("Number of existing circles: $oldItemCount")
 
         val circle3 = ShapeFactory.getCircle("Orange") as Circle
         circle.x = 40
         circle.y = 49
         circle.radius = 100
 
-        val newValue = ShapeFactory.getMapSize()
-        logger.info("Number of existing circles: $newValue")
+        // map size after creating another new circle of color Orange
+        // should not change because an Orange circle already exists
+        val newItemCount = ShapeFactory.getMapSize()
+        logger.info("Number of existing circles: $newItemCount")
 
-        assertEquals(oldValue, newValue)
+        assertEquals(oldItemCount, newItemCount)
+        logger.info("Success: Existing circle replaced. New object creation avoided.")
 
 
     }
