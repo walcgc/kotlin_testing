@@ -68,4 +68,38 @@ class FlyweightTestRunner {
         logger.info("Circle exists.")
     }
 
+    @Test
+    fun testItemCount() {
+
+        val circle = ShapeFactory.getCircle("Orange") as Circle
+        circle.x = 20
+        circle.y = 47
+        circle.radius =98
+
+        val primaryValue = ShapeFactory.getMapSize()
+        logger.info("Number of existing circles: $primaryValue")
+
+        val circle2 = ShapeFactory.getCircle("Brown") as Circle
+        circle.x = 10
+        circle.y = 27
+        circle.radius = 78
+
+        val oldValue = ShapeFactory.getMapSize()
+        logger.info("Number of existing circles: $oldValue")
+
+        val circle3 = ShapeFactory.getCircle("Orange") as Circle
+        circle.x = 40
+        circle.y = 49
+        circle.radius = 100
+
+        val newValue = ShapeFactory.getMapSize()
+        logger.info("Number of existing circles: $newValue")
+
+        assertEquals(oldValue, newValue)
+
+
+    }
+
+
+
 }

@@ -13,7 +13,14 @@ object ShapeFactory {
             //println("Creating circle of color : $color")
         }
         return circle
+
     }
+
+    fun getMapSize(): Int {
+        var itemCount = circleMap.size
+        return itemCount
+    }
+
 }
 
 
