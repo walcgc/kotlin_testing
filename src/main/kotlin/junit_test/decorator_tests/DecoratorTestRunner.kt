@@ -14,6 +14,7 @@ class DecoratorTestRunner {
         // checks if carDecorator implements Car
         val carDecorator = CarDecorator(CarInstance())
         assertTrue(carDecorator is Car)
+        logger.info("Implemented Car.")
 
     }
 
@@ -22,6 +23,7 @@ class DecoratorTestRunner {
         // checks if carDecorator implements Car
         val raceCar: Car = RaceCar(CarInstance())
         assertTrue(raceCar is Car)
+        logger.info("Implemented Car.")
 
     }
 
@@ -30,6 +32,17 @@ class DecoratorTestRunner {
         // checks if carDecorator implements Car
         val raceCar: Car = RaceCar(CarInstance())
         assertTrue(raceCar is CarDecorator)
+        logger.info("Implemented Car.")
+
+    }
+
+    @Test
+    fun methodIsIntactXXX1() {
+        // checks if the original method in car remains intact after being decorated
+        val normalCar: Car = CarInstance()
+        val raceCar: Car = RaceCar(CarInstance())
+        assertEquals(raceCar.addFeature(), normalCar.addFeature());
+        logger.info("Original method is intact")
 
     }
 

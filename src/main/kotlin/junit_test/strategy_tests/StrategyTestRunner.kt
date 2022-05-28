@@ -71,4 +71,14 @@ class StrategyTestRunner {
         Assert.assertEquals(finalTestResult.toLong(), referenceResult.toLong())
         Assert.assertTrue(StrategyTestCases.isCorrectResult(finalTestResult, referenceResult))
     }
+
+    @Test
+    fun falseTest() {
+        val context = Context(OperationAdd())
+        val context2 = Context(OperationSubtract())
+
+        val firstResult = context.executeStrategy(3, 5)
+        val secondResult = context2.executeStrategy(3, 5)
+        Assert.assertNotEquals(firstResult, secondResult)
+    }
 }

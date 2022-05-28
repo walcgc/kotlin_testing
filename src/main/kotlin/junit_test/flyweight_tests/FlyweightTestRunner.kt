@@ -51,7 +51,7 @@ class FlyweightTestRunner {
     @Test
     fun incompleteCircleDetailsXXX1() {
         // Incomplete details of circle
-        //There's a bug here, if you change it to Blue, seems like it's referencing past object from other test.
+        
 
         val circle = ShapeFactory.getCircle("Yellow") as Circle
         circle.x = 20
@@ -88,7 +88,7 @@ class FlyweightTestRunner {
         circle.radius = 78
 
         // map size after creating a new circle of color Brown
-        // should be 1 more than primaryValue
+        // should be 1 more than primaryItemCount
         val oldItemCount = ShapeFactory.getMapSize()
         logger.info("Number of existing circles: $oldItemCount")
 

@@ -12,6 +12,15 @@ class FactoryTestRunner {
     private val logger = Logger.getLogger(FactoryTestRunner::class.java.name)
 
     @Test
+    fun returnsACupcakeXXX1() {
+        // checks if the factory actually returns a cupcake
+        var cupcake = "Special"
+        assertNotNull(cupcakeFactory.makeCupcake(cupcake))
+        logger.info(cupcake + " used as input. Default cupcake returned.")
+
+    }
+
+    @Test
     fun returnsChocoCupcakeXXX1() {
         // checks if object is same kind
         var cupcake = "Chocolate"
@@ -42,5 +51,16 @@ class FactoryTestRunner {
         assertTrue(cupcakeFactory.makeCupcake(cupcake) is DefaultCupcake)
         logger.info(cupcake + " used as input. Default cupcake returned.")
     }
+
+    @Test
+    fun returnsDifferentFlavorsXXX1() {
+        // checks if different flavors are produced as intended
+        var cupcake1 = cupcakeFactory.makeCupcake("Banana")
+        var cupcake2 = cupcakeFactory.makeCupcake("Chocolate")
+
+        assertFalse(cupcake1 == cupcake2)
+        logger.info("Two different cupcake flavors returned.")
+    }
+
 }
 
